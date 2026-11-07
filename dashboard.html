@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>活動兌獎查詢</title>
+  <style>
+    :root{font-family:system-ui,"Noto Sans TC",sans-serif;color:#1f2937;background:#f7f7f8}
+    *{box-sizing:border-box}body{margin:0}main{max-width:820px;margin:auto;padding:24px 16px 56px}
+    h1{font-size:1.6rem;margin:0 0 6px}h2{font-size:1.15rem;margin:0 0 14px}
+    .muted{color:#64748b}.card{background:white;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:18px 0}
+    .row{display:flex;gap:10px;align-items:center}.row input{flex:1;min-width:0}
+    input{font:inherit;padding:11px;border:1px solid #cbd5e1;border-radius:8px}
+    button{font:inherit;padding:11px 16px;border:0;border-radius:8px;background:#334155;color:white;cursor:pointer}
+    button:disabled{opacity:.5;cursor:default}ul{list-style:none;padding:0;margin:0}li{padding:11px 0;border-bottom:1px solid #e5e7eb}li:last-child{border:0}
+    .ticket{font-family:ui-monospace,SFMono-Regular,monospace;font-weight:700;margin-right:12px}
+    #message:empty{display:none}#message{padding:12px;border-radius:8px;background:#fff7ed;color:#9a3412}
+    @media(max-width:520px){.row{align-items:stretch;flex-direction:column}}
+  </style>
+</head>
+<body><main>
+  <h1 id="eventName">活動兌獎查詢</h1><div id="eventDate" class="muted"></div>
+  <p class="muted">免登入查獎・每 10 秒自動更新已公布結果</p>
+  <p id="message" role="status" aria-live="polite"></p>
+  <section class="card"><h2>查詢票號</h2><form id="ticketForm" class="row"><input id="ticketInput" aria-label="票號" autocomplete="off" placeholder="請輸入票號" required><button id="ticketSubmit">查詢</button></form><div id="ticketResult" aria-live="polite"></div></section>
+  <section class="card"><div class="row"><h2>已公布中獎名單</h2><button id="refresh" type="button">重新整理</button></div><p id="listCount" class="muted"></p><p id="pageRange" class="muted"></p><ul id="winnerList"></ul><div class="row"><button id="previous" hidden>上一頁</button><button id="loadMore" hidden>下一頁</button></div></section>
+</main><script src="config.js"></script><script src="dashboard.js"></script></body></html>
