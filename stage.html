@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>活動舞台｜V2027</title>
+  <style>
+    :root{font-family:system-ui,"Noto Sans TC",sans-serif;color:#fff;background:#070b18;color-scheme:dark}
+    *{box-sizing:border-box}body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 15% 10%,#3b1748 0,transparent 32%),radial-gradient(circle at 90% 90%,#173662 0,transparent 38%),#070b18}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;background-image:radial-gradient(circle,#f4c86a 1px,transparent 1.5px);background-size:44px 44px;mask-image:linear-gradient(120deg,#000,transparent 65%)}
+    main{position:relative;min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(20px,3vw,48px) clamp(22px,5vw,80px)}
+    header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}.eyebrow{margin:0 0 8px;color:#f4c86a;font-weight:800;letter-spacing:.18em;font-size:clamp(.78rem,1vw,1rem)}
+    h1{margin:0;max-width:25ch;font-size:clamp(1.45rem,3vw,3rem);line-height:1.15}.badge{border:1px solid #ffffff42;border-radius:999px;padding:.45em .9em;color:#dbe4f0;white-space:nowrap;background:#ffffff0b}
+    #screen{display:flex;min-height:55vh;align-items:center;justify-content:center;text-align:center;padding:4vh 0}.panel{width:min(1500px,100%)}
+    #prizeName{min-height:1.2em;margin:0 0 clamp(20px,3vh,46px);color:#f4c86a;font-weight:700;font-size:clamp(1.4rem,3.4vw,3.8rem)}
+    #notice{margin:0 auto;max-width:22ch;font-weight:850;font-size:clamp(2.4rem,7vw,7.5rem);line-height:1.12;letter-spacing:.02em;text-wrap:balance}
+    #numbers{display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:clamp(10px,1.5vw,24px);list-style:none;margin:0;padding:0}
+    #numbers li{min-width:4.5em;padding:.23em .42em;border:1px solid #f4c86a80;border-radius:.28em;background:linear-gradient(145deg,#ffffff18,#ffffff08);box-shadow:0 18px 45px #0007;color:#fff7dd;font:850 clamp(1.8rem,4.8vw,5.2rem)/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;animation:ticketIn .45s both}
+    #numbers.many li{font-size:clamp(1.35rem,3.2vw,3.4rem)}
+    footer{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;color:#b9c5d7}#connection{margin:0;min-height:1.5em;font-size:clamp(.85rem,1.1vw,1.05rem)}
+    #lookup{display:flex;align-items:center;gap:14px;text-align:right}#lookup img{width:clamp(92px,9vw,148px);height:auto;padding:6px;background:#fff;border-radius:10px}#lookup p{margin:.2em 0}#lookup a{color:#f4c86a;font-weight:700}
+    .rolling{animation:pulse 1.1s ease-in-out infinite}.rolling:after{content:"";display:block;width:min(460px,65vw);height:3px;margin:.45em auto 0;background:linear-gradient(90deg,transparent,#f4c86a,transparent);animation:sweep 1.4s linear infinite}
+    [hidden]{display:none!important}@keyframes ticketIn{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}@keyframes pulse{50%{opacity:.48;transform:scale(.98)}}@keyframes sweep{from{transform:translateX(-18%)}to{transform:translateX(18%)}}
+    @media(max-width:680px){main{padding:20px 18px}header{gap:12px}.badge{font-size:.75rem}footer{align-items:center;flex-direction:column-reverse;text-align:center}#lookup{text-align:left}#lookup img{width:96px}}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+  </style>
+</head>
+<body><main>
+  <header><div><p class="eyebrow">V2027 EVENT LOTTERY</p><h1 id="eventName">活動舞台</h1></div><span id="environment" class="badge">連線中</span></header>
+  <section id="screen"><div class="panel"><h2 id="prizeName"></h2><p id="notice">等待舞台切換</p><ul id="numbers" hidden></ul></div></section>
+  <footer><p id="connection" role="status" aria-live="polite"></p><aside id="lookup" hidden><div><p>掃描 QR Code</p><p>查詢已公布中獎名單</p><a id="lookupLink" target="_blank" rel="noopener">開啟查獎頁</a></div><img id="lookupQr" alt="此活動查獎 QR Code"></aside></footer>
+</main><script src="config.js"></script><script src="qr-generator.js"></script><script src="stage.js"></script></body></html>
